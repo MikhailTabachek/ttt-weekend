@@ -29,7 +29,7 @@ document.querySelectorAll(".square").forEach(element => element.addEventListener
 init();
 
 function init(){
-  squareArr = [1, 1, 1, null, null, null, null, null, null]
+  squareArr = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
   // render();
@@ -39,22 +39,55 @@ function init(){
 console.log()
 
 function handleClick(evt){
-// if turn > 0 &&  => -1,  else if turn <0 => 1
 let index = evt.target.id[2]
 if (squareArr[index] || winner){
   return
 }
+  
 
 squareArr[index] = turn
 
 turn *= -1
 
-console.log(squareArr)
+// console.log(squareArr)
+
+render()
 }
+
+
 
 function render(){
 
+squareArr.forEach(itr)
+
+function itr(element, index) {
+  let xSym = `sq${index}`
+  if(element === 1){
+  // document.querySelector("#message").innerText = "Now O's Turn"
+  document.getElementById(xSym).innerText = "X"
+  console.log(`${index}`)
+  // console.log(message.innerText)
+  // return
+  } else if (element === -1) {
+  // document.querySelector("#message").innerText = "Now X's Turn"
+  document.getElementById(xSym).innerText = "O"
+  console.log(`${index}`)
+  console.log(`${element}`)
+  // console.log(message.innerText)
+  // return
+  }
+
+
+
+
+
+
+
+
 }
+
+}
+
 
 
 //  arr1 = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
