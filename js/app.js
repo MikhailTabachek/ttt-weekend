@@ -34,11 +34,13 @@ function init(){
 console.log()
 }
 
-console.log()
+// console.log()
 
 function handleClick(evt){
 let index = evt.target.id[2]
+
 if (squareArr[index] || winner){
+  console.log(index)
   return
 }
 squareArr[index] = turn
@@ -70,21 +72,53 @@ function itr(element, index) {
   } else if (element === -1) {
 
   document.getElementById(xSym).innerText = "O"
-  console.log(`${index}`)
   }
 }
+getWinner()
 }
-function getWinner(i) {
-  let sum = 0 
-  array.forEach((item) => {
-    if(Array.isArray(item)) {
-     sum += sumItems(item);
-    } else {
-    sum += item;
-    }
-  })
-  return sum;
-}
+
+
+
+// function getWinner() {
+//   let winCalc = winArr
+//   let totalArrs = []
+//   let total = 0
+//   // winCalc.forEach((element) => {
+//   //   totalArrs = totalArrs.concat(element)
+//   // })
+
+//   console.log(totalArrs)
+
+//   winCalc.forEach(function(element){
+//     total = element.reduce((first, second) => first + squareArr[second], 0)
+//     totalArrs.push(total)
+//     console.log(element)
+//     console.log(total)
+//     })
+
+//   console.log(totalArrs)
+
+//   let foundWinner = totalArrs.find(element => element === 3 || element === -3)
+
+//   if(foundWinner > 0){
+//     console.log("X is winner")} else if(foundWinner < 0) {
+//       console.log("O is winner")
+//     }
+//   }
+    
+  
+
+
+  
+
+
+
+
+    
+  
+
+
+
 
 
 // function getWinner(){
@@ -97,20 +131,27 @@ function getWinner(i) {
 //   })
 
   // }
-// function getWinner(){ //check if we have a winner condition
-//   for (let i=0; i<8; i++){
-//     const winCondition = winArr[i];
-//     const a = board[winCondition[0]];
-//     const b = board[winCondition[1]];
-//     const c = board[winCondition[2]];
-//     //console.log(a,b,c)
-//     if(a === b && b === c && (a !== null && b !== null && c !== null)){
+function getWinner(){ //check if we have a winner condition
+  for(let i = 0; i < winArr.length; i++){
+    const winCondition = winArr[i];
+    const a = squareArr[winCondition[0]];
+    const b = squareArr[winCondition[1]];
+    const c = squareArr[winCondition[2]];
+    console.log(a, b, c)
+    if(a === b && b === c && (a !== null && b !== null && c !== null)){
       
-//       winner = turn;
-//       return;
-//     }
-//   }
-// }
+      winner = turn;
+      if(turn === 1){
+        message.innerText = "the winner is : X"
+      } else {
+        message.innerText = "the winner is : O"
+      }
+      
+      
+      return;
+    }
+  }
+}
 
 
 
