@@ -47,76 +47,38 @@ turn *= -1
 console.log(squareArr)
 render()
 }
-
-
-
 function render(){
-
 squareArr.forEach(itr)
-
 function itr(element, index) {
-  let xSym = `sq${index}`
-  if(element === 1){
-  document.getElementById(xSym).innerText = "X"
-  } else if (element === -1) {
+let xSym = `sq${index}`
+if(element === 1){
+document.getElementById(xSym).innerText = "X"
+} else if (element === -1) {
 
-  document.getElementById(xSym).innerText = "O"
-  }
+document.getElementById(xSym).innerText = "O"
+}
 }
 getWinner()
 }
 
-// function getWinner() {
-//   let winCalc = winArr
-//   let totalArrs = []
-//   let total = 0
-//   // winCalc.forEach((element) => {
-//   //   totalArrs = totalArrs.concat(element)
-//   // })
-
-//   console.log(totalArrs)
-
-//   winCalc.forEach(function(element){
-//     total = element.reduce((first, second) => first + squareArr[second], 0)
-//     totalArrs.push(total)
-//     console.log(element)
-//     console.log(total)
-//     })
-
-//   console.log(totalArrs)
-
-//   let foundWinner = totalArrs.find(element => element === 3 || element === -3)
-
-//   if(foundWinner > 0){
-//     console.log("X is winner")} else if(foundWinner < 0) {
-//       console.log("O is winner")
-//     }
-//   }
 function getWinner(){
   for(let i = 0; i < winArr.length; i++){
     const winCondition = winArr[i];
     const a = squareArr[winCondition[0]];
     const b = squareArr[winCondition[1]];
     const c = squareArr[winCondition[2]];
-    // console.log(a, b, c)
-    // console.log(squareArr[2])
-    // console.log(winner)
-    // console.log(square)
     const noNull = (element) => element === null;
-    console.log(squareArr.some(noNull));
     if(a === b && b === c && (a !== null && b !== null && c !== null)){
-      
-      winner = turn;
-      
-      if(winner === 1){
+    winner = turn;
+    if(winner === 1){
         message.innerText = "Woo-Hoo! The winner is : O "
         gameover.innerText = "Please click restart button to start a new game"
-      } else if(winner === -1) {
+    } else if(winner === -1) {
         message.innerText = "Woo-Hoo! The winner is : X"
         gameover.innerText = "Please click restart button to start a new game"
-      }
-      reset.removeAttribute("hidden")
-      return
+    }
+    reset.removeAttribute("hidden")
+    return
     } 
     else if(squareArr.some(noNull) === false){
       winner = "t"
@@ -124,31 +86,10 @@ function getWinner(){
       gameover.innerText = "Please click restart button to start a new game"
       reset.removeAttribute("hidden")
     }
-   
-      
     } 
-    
-
-    //   if (winner = "t"){
-    //     message.innerText = "You've got Tie!"
-    //     gameover.innerText = "Please click restart button to start a new game"
-    // }
-    // else if (a !== null && b !== null && c !== null && (a !== b && a !== c)) {
-      
-    //   winner = "t"
-
-    //   if (winner = "t"){
-    //     message.innerText = "You've got Tie!"
-    //     gameover.innerText = "Please click restart button to start a new game"
-    //   }
      return
     }
-//   }
-// }
-
-// reset.addEventListener("click", remove())
-
+    
 function remove(){
   location.reload();
-  // querySelector(".square").innerText
 }
