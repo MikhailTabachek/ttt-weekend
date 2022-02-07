@@ -1,6 +1,8 @@
 body {
   text-align: center;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
+    /* background-image: url(https://media.istockphoto.com/photos/design-elements-background-of-letters-being-sucked-up-by-gravity-picture-id1055446200); */
+    background-size: cover;
 	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -11,8 +13,7 @@ body {
 }
 
 h1 {
-  /* text-align: center; */
-  /* margin-left: 8%; */
+margin-top: 15%;
 }
 h2 {
   /* text-align: center; */
@@ -29,9 +30,15 @@ section.board {
 
 div {
   border: 3px solid black;
-  font-size: 8vmin;
+  background-color: rgb(255, 255, 255);
+  font-size: 7vmin;
   text-align: center;
   vertical-align: middle;
+  box-shadow: 2px 2px 16px grey;
+}
+.square{
+
+  text-align: center;
 }
 
 .status {
@@ -47,4 +54,11 @@ div {
 .status .winner {
   color: rgb(0, 0, 0);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+  margin-left: 48%;
+  margin-right: 47%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

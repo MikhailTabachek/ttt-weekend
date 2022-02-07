@@ -9,14 +9,7 @@ let squareArr, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 const message = document.getElementById("message")
-// const square0 = document.getElementById("sq0")
-// const square1 = document.getElementById("sq1")
-// const square2 = document.getElementById("sq2")
-// const square3 = document.getElementById("sq3")
-// const square5 = document.getElementById("sq5")
-// const square6 = document.getElementById("sq6")
-// const square7 = document.getElementById("sq7")
-// const square8 = document.getElementById("sq8")
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -34,17 +27,13 @@ function init(){
 console.log()
 }
 
-// console.log()
-
 function handleClick(evt){
 let index = evt.target.id[2]
 
 if (squareArr[index] || winner){
-  console.log(index)
   return
 }
 squareArr[index] = turn
-console.log(squareArr)
 
 if(turn === 1){
 document.querySelector("#message").innerText = "Now O's Turn"
@@ -53,9 +42,7 @@ document.querySelector("#message").innerText = "Now O's Turn"
 }
 
 turn *= -1
-
-// console.log(squareArr)
-
+console.log(squareArr)
 render()
 }
 
@@ -76,8 +63,6 @@ function itr(element, index) {
 }
 getWinner()
 }
-
-
 
 // function getWinner() {
 //   let winCalc = winArr
@@ -105,64 +90,63 @@ getWinner()
 //       console.log("O is winner")
 //     }
 //   }
-    
-  
-
-
-  
-
-
-
-
-    
-  
-
-
-
-
-
-// function getWinner(){
-// winArr.forEach(function(arr){
-//     arr.forEach(function(winComb){
-//       let total = 0
-//       total += winComb
-//       console.log(total)
-//     })
-//   })
-
-  // }
-function getWinner(){ //check if we have a winner condition
+function getWinner(){
   for(let i = 0; i < winArr.length; i++){
     const winCondition = winArr[i];
     const a = squareArr[winCondition[0]];
     const b = squareArr[winCondition[1]];
     const c = squareArr[winCondition[2]];
-    console.log(a, b, c)
+    // console.log(a, b, c)
+    // console.log(squareArr[2])
+    // console.log(winner)
+    // console.log(square)
+    const noNull = (element) => element === null;
+    console.log(squareArr.some(noNull));
     if(a === b && b === c && (a !== null && b !== null && c !== null)){
       
       winner = turn;
-      if(turn === 1){
-        message.innerText = "the winner is : X"
-      } else {
-        message.innerText = "the winner is : O"
+      
+      if(winner === 1){
+        message.innerText = "Woo-Hoo! The winner is : O "
+        gameover.innerText = "Please click restart button to start a new game"
+      } else if(winner === -1) {
+        message.innerText = "Woo-Hoo! The winner is : X"
+        gameover.innerText = "Please click restart button to start a new game"
       }
-      
-      
-      return;
+      reset.removeAttribute("hidden")
+      return
+    } 
+    else if(squareArr.some(noNull) === false){
+      winner = "t"
+      message.innerText = "You've got Tie!"
+      gameover.innerText = "Please click restart button to start a new game"
+      reset.removeAttribute("hidden")
     }
-  }
-}
+   
+      
+    } 
+    
 
+    //   if (winner = "t"){
+    //     message.innerText = "You've got Tie!"
+    //     gameover.innerText = "Please click restart button to start a new game"
+    // }
+    // else if (a !== null && b !== null && c !== null && (a !== b && a !== c)) {
+      
+    //   winner = "t"
 
-
-//  arr1 = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-// arr1.forEach(function(win){
-// win.forEach(winWin){
-// compare if element with index 0 = 0 && 1 = 1 && = 2 
+    //   if (winner = "t"){
+    //     message.innerText = "You've got Tie!"
+    //     gameover.innerText = "Please click restart button to start a new game"
+    //   }
+     return
+    }
+//   }
 // }
-// })
 
-// arr2 = [1, 1, 1, -1, null, null, null, null, null]
-// arr2 = [0, 1, 2,    3,    4,    5,    6,    7,    8]
+// reset.addEventListener("click", remove())
 
-// if index 0 in array 2 = 1 
+function remove(){
+  location.reload();
+  // querySelector(".square").innerText
+}
