@@ -37,8 +37,10 @@ squareArr[index] = turn
 
 if(turn === 1){
 document.querySelector("#message").innerText = "Now O's Turn"
+message.style.color = "orange"
 } else if(turn === -1){
   document.querySelector("#message").innerText = "Now X's Turn"
+  message.style.color = "#228B22"
 }
 
 turn *= -1
