@@ -77,19 +77,33 @@ function getWinner(){
         message.innerText = "Woo-Hoo! The winner is : X"
         gameover.innerText = "Please click restart button to start a new game"
     }
-    reset.removeAttribute("hidden")
     return
     } 
     else if(squareArr.some(noNull) === false){
       winner = "t"
       message.innerText = "You've got Tie!"
       gameover.innerText = "Please click restart button to start a new game"
-      reset.removeAttribute("hidden")
     }
     } 
-     return
+    return
     }
-    
+
 function remove(){
-  location.reload();
-}
+  // location.reload();
+ 
+   sq1.innerText= ""
+    sq2.innerText= ""
+    sq3.innerText= ""
+    sq4.innerText= ""
+    sq5.innerText= ""
+    sq6.innerText= ""
+    sq7.innerText= ""
+    sq8.innerText= ""
+    sq0.innerText= ""
+    gameover.innerText = ""
+    message.innerText = "Please click on the empty square to begin."
+    message.style.color = "black"
+    init()
+  }
+
+
