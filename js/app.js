@@ -24,7 +24,6 @@ function init(){
   turn = 1
   winner = null
   render();
-console.log()
 }
 
 function handleClick(evt){
@@ -44,7 +43,6 @@ message.style.color = "orange"
 }
 
 turn *= -1
-console.log(squareArr)
 render()
 }
 function render(){
@@ -90,7 +88,6 @@ function getWinner(){
 
 function remove(){
   // location.reload();
- 
    sq1.innerText= ""
     sq2.innerText= ""
     sq3.innerText= ""
